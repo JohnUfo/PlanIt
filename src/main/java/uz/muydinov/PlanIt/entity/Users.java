@@ -7,25 +7,12 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Users {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String username;
-    private String password;
-
     public Users() {
-
     }
 
     @Override
     public String toString() {
-        return "Users{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "Users{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + '}';
     }
 
     public Integer getId() {
@@ -61,4 +48,11 @@ public class Users {
         this.username = username;
         this.password = password;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String username;
+    private String password;
 }

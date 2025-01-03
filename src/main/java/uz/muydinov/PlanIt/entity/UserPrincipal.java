@@ -1,8 +1,5 @@
 package uz.muydinov.PlanIt.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,16 +8,25 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class UserPrincipal implements UserDetails {
+    public UserPrincipal(Users user) {
+        this.user = user;
+    }
+    public UserPrincipal(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "UserPrincipal{" +
+                "user=" + user +
+                '}';
+    }
+
     public Users getUser() {
         return user;
     }
 
     public void setUser(Users user) {
-        this.user = user;
-    }
-
-    public UserPrincipal(Users user) {
-
         this.user = user;
     }
 

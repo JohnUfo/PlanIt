@@ -4,25 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
 
 @Entity
 public class Student {
+    public Student() {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private int marks;
-
-    public Student(int id, String name, int marks) {
-        this.id = id;
-        this.name = name;
-        this.marks = marks;
     }
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -54,6 +44,20 @@ public class Student {
         this.marks = marks;
     }
 
-    public Student() {
+    public Student(int id) {
+        this.id = id;
     }
+
+    public Student(int id, String name, int marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private int marks;
+
 }
